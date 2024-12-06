@@ -6,15 +6,15 @@ import org.springframework.data.annotation.Id;
 @Entity(name = "Chapter")
 public class Chapter {
   @Id
-  private int chapId;
+  private Long chapId;
   private String title;
   private String podcastUrl;
-  private int bookId;
+  private String bookId;
   private String assistantId;
 
   public Chapter() {}
 
-  public Chapter(int chapId, String title, String podcastUrl, int bookId, String assistantId) {
+  public Chapter(Long chapId, String title, String podcastUrl, String bookId, String assistantId) {
     this.chapId = chapId;
     this.title = title;
     this.podcastUrl = podcastUrl;
@@ -22,11 +22,11 @@ public class Chapter {
     this.assistantId = assistantId;
   }
 
-  public int getChapId() {
+  public Long getChapId() {
     return chapId;
   }
 
-  public void setChapId(int chapId) {
+  public void setChapId(Long chapId) {
     this.chapId = chapId;
   }
 
@@ -46,11 +46,11 @@ public class Chapter {
     this.podcastUrl = podcastUrl;
   }
 
-  public int getBookId() {
+  public String getBookId() {
     return bookId;
   }
 
-  public void setBookId(int bookId) {
+  public void setBookId(String bookId) {
     this.bookId = bookId;
   }
 
@@ -60,5 +60,16 @@ public class Chapter {
 
   public void setAssistantId(String assistantId) {
     this.assistantId = assistantId;
+  }
+
+  @Override
+  public String toString() {
+    return "{" +
+            "chapId:" + chapId +
+            ", title:'" + title + '\'' +
+            ", podcastUrl:'" + podcastUrl + '\'' +
+            ", bookIdr:" + bookId +
+            ", assistantId:" + assistantId +
+            '}';
   }
 }

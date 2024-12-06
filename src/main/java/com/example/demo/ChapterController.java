@@ -12,13 +12,16 @@ public class ChapterController {
   private ChapterRepository chapterRepository;
 
   @GetMapping("/{bookId}/chapters/{chapId}")
-  public Chapter getChapterById(@PathVariable int chapId) {
-    return chapterRepository.findById(chapId).orElse(null);
+  public Chapter getChapterById(@PathVariable String bookId, @PathVariable Long chapId) {
+    return chapterRepository.findByBookIdAndChapId(bookId, chapId);
   }
 
   @PostMapping("/save")
-  public Chapter saveChapter(@RequestBody Chapter chapter) {
-    return chapterRepository.save(chapter);
+  public String saveChapter(@RequestBody Chapter chapter) {
+    if (chapter == null) {
+      return "The book is invalid";
+    }
+    this.chapterRepository.save(chapter);
+    return "success";
   }
-
 }
