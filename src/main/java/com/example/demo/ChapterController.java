@@ -3,7 +3,9 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://democracyfrontend.wl.r.appspot.com")
+
+
 @RestController
 @RequestMapping("")
 public class ChapterController {
